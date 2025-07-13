@@ -13,14 +13,28 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const runCode = async () => {
-    setLoading(true);
-    setOutput("🏃 Wunning...");
-    try {
-  const res = await fetch("/api/run", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ code }),
-  });
+  setLoading(true);
+  setOutput(""); // clear old output
+  try {
+    const res = await fetch("/api/run", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ code }),
+    });
+
+    if (!res.ok) {
+      const errText = await res.text();
+      setOutput(`❌ API Error: ${res.status} – ${errText}`);
+    } else {
+      const data = await res.json();
+      setOutput(data.output || "(no output)");
+    }
+  } catch (error: any) {
+    setOutput(`❌ Wuntime ewwow! ${error.message || error}`);
+  } finally {
+    setLoading(false);
+  }
+};
 
   const data = await res.json();
   setOutput(data.output || "(no output)");
