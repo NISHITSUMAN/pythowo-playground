@@ -75,7 +75,7 @@ export default function Home() {
           <li><b>pwease x = 5</b> – Declare variable</li>
           <li><b>IF cond THWEN ... END</b> – If statement</li>
           <li><b>FWUNCTION f(x):</b> – Function def</li>
-          <li><b>pwint("msg")</b> – Print message</li>
+          <li><b>pwint(msg)</b> – Print message</li>
           <li><b>inpwt(), inpwt_int()</b> – Input</li>
           <li><b>appwend, pwp, lwen</b> – List ops</li>
           <li><b>AND, OR, NOT</b> – Logic ops</li>
