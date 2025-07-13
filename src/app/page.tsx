@@ -23,8 +23,9 @@ export default function Home() {
       });
       const data = await res.json();
       setOutput(data.output || "(no output)");
-    } catch (err) {
-      setOutput("❌ Wuntime ewwow!");
+    } catch {
+  setOutput("❌ Wuntime ewwow!");
+}
     } finally {
       setLoading(false);
     }
