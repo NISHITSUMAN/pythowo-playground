@@ -4,7 +4,7 @@ import { writeFile, unlink } from "fs/promises";
 import path from "path";
 import os from "os";
 
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest): Promise<Response> {
   const body = await req.json();
   const code = body.code;
 
@@ -12,14 +12,13 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ output: "🚫 Invalid code input." }, { status: 400 });
   }
 
-
   const tmpDir = os.tmpdir();
   const filePath = path.join(tmpDir, `tmp_${Date.now()}.pyowo`);
   await writeFile(filePath, code, "utf8");
 
   return new Promise((resolve) => {
     const proc = spawn("python", ["pythowo.py", filePath], {
-      cwd: path.join(process.cwd(), "pythowo"),  
+      cwd: path.join(process.cwd(), "pythowo"),
     });
 
     let stdout = "";
@@ -34,9 +33,11 @@ export async function POST(req: NextRequest) {
     });
 
     proc.on("close", async () => {
-      await unlink(filePath); 
+      await unlink(filePath);
       const finalOutput = stderr ? `❌ ${stderr}` : stdout || "(no output)";
-      resolve(NextResponse.json({ output: finalOutput }));
+      resolve(new Response(JSON.stringify({ output: finalOutput }), {
+        headers: { "Content-Type": "application/json" },
+      }));
     });
   });
 }
