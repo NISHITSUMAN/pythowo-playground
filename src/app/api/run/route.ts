@@ -4,40 +4,49 @@ import { writeFile, unlink } from "fs/promises";
 import path from "path";
 import os from "os";
 
-export async function POST(req: NextRequest): Promise<Response> {
+export async function POST(req: NextRequest) {
   const body = await req.json();
   const code = body.code;
-
   if (!code || typeof code !== "string") {
-    return NextResponse.json({ output: "🚫 Invalid code input." }, { status: 400 });
+    return NextResponse.json(
+      { output: "🚫 Invalid code input." },
+      { status: 400 }
+    );
   }
 
   const tmpDir = os.tmpdir();
   const filePath = path.join(tmpDir, `tmp_${Date.now()}.pyowo`);
   await writeFile(filePath, code, "utf8");
 
-  return new Promise((resolve) => {
-    const proc = spawn("python", ["pythowo.py", filePath], {
-      cwd: path.join(process.cwd(), "pythowo"),
-    });
+  // Execute interpreter
+  const proc = spawn(
+    "python",
+    ["pythowo.py", filePath],
+    {
+      cwd: path.join(process.cwd(), "pythowo"), // Adjust if needed
+    }
+  );
 
-    let stdout = "";
-    let stderr = "";
+  let stdout = "";
+  let stderr = "";
 
-    proc.stdout.on("data", (data) => {
-      stdout += data.toString();
-    });
+  for await (const chunk of proc.stdout) {
+    stdout += chunk.toString();
+  }
+  for await (const chunk of proc.stderr) {
+    stderr += chunk.toString();
+  }
 
-    proc.stderr.on("data", (data) => {
-      stderr += data.toString();
-    });
+  const exitCode: number = await new Promise((r) =>
+    proc.on("close", (code) => r(code ?? 0))
+  );
 
-    proc.on("close", async () => {
-      await unlink(filePath);
-      const finalOutput = stderr ? `❌ ${stderr}` : stdout || "(no output)";
-      resolve(new Response(JSON.stringify({ output: finalOutput }), {
-        headers: { "Content-Type": "application/json" },
-      }));
-    });
-  });
+  await unlink(filePath);
+
+  const responsePayload = {
+    output: stderr ? `❌ ${stderr}` : stdout || "(no output)",
+    code: exitCode
+  };
+
+  return NextResponse.json(responsePayload);
 }
