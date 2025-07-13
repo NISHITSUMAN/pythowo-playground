@@ -1,36 +1,144 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+V# 🐍 PythOwO – The UwU-fied Python Esolang
 
-## Getting Started
+> The cutest cursed Python-based esolang you'll ever meet.  
+> Featuring uwuified syntax, cursed keywords, and actual functionality.
 
-First, run the development server:
+---
+
+## 🧠 What is PythOwO?
+
+PythOwO is a Python-based esolang that transforms ordinary Python into a fluffier, uwuified dialect.  
+It was built just for fun, learning, and for those who want to suffer adorably.
+
+---
+
+## 🚀 Quick Start
+
+### 🔧 Requirements
+
+- Python 3.8 or higher
+- OS: Windows/macOS/Linux
+- Terminal and mental stability (optional)
+
+### 📦 Run Your Code
+
+Save your uwuified code as `.pyowo` or `.pyowow`, then run:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+python pythowo.py your_code.pyowo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Example:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+python pythowo.py exwamples/hewwo.pyowow
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧾 PythOwO Command Map
 
-To learn more about Next.js, take a look at the following resources:
+| PythOwO Syntax                        | Equivalent Python             | Notes                          |
+|--------------------------------------|--------------------------------|---------------------------------|
+| `pwease x = 5`                       | `x = 5`                        | Declare variable                |
+| `pwint("text")`                     | `print("text")`               | Output text                     |
+| `inpwt()` / `inpwt_int()`           | `input()` / `int(input())`    | Get string or integer input     |
+| `FWUNCTION name(pawams):`           | `def name(params):`           | Define a function               |
+| `WETUWN x`                          | `return x`                    | Return value                    |
+| `IF cond THWEN` ... `END`          | `if cond:` ...                | If condition block              |
+| `EWSE`                              | `else:`                       | Else condition                  |
+| `EWWIF cond THWEN`                 | `elif cond:`                  | Else-if block                   |
+| `WHIWE cond:`                      | `while cond:`                 | While loop                      |
+| `WOOP i FWOM a TO b:`              | `for i in range(a, b+1):`     | For loop                        |
+| `twue`, `fawse`, `nwull`           | `True`, `False`, `None`       | Constants                       |
+| `WAIW Exception("msg")`            | `raise Exception("msg")`      | Raise error                     |
+| `TWY:`                              | `try:`                        | Try block                       |
+| `XCEPT Exception:`                | `except Exception:`           | Except block                    |
+| `FINAWWY:`                          | `finally:`                    | Finally block                   |
+| `appwend`, `pwp`, `lwen`, `wevewse`| `append`, `pop`, `len`, `reverse` | List operations             |
+| `AND`, `OR`, `NOT`                 | `and`, `or`, `not`            | Logic operations                |
+| `+`, `-`, `*`, `/`, `^`            | `+`, `-`, `*`, `/`, `**`       | Math operators (`^` = `**`)     |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 👨‍💻 Example Code
 
-## Deploy on Vercel
+```py
+pwease name = inpwt()
+FWUNCTION say_hewwo(name):
+  pwint("hewwo, " + name + "!")
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+say_hewwo(name)
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Save as `hewwo.pyowow` and run:
+
+```bash
+python pythowo.py hewwo.pyowow
+```
+
+---
+
+## 🧪 Terminal Output Sample
+
+```bash
+> python pythowo.py exwamples/hewwo.pyowow
+hewwo, Nishit!
+```
+
+---
+
+## 🖥️ Try It in the Browser
+
+Check out the official **PythOwO Playground UI**:
+
+👉 [https://github.com/YOUR_USERNAME/pythowo-playground](https://github.com/YOUR_USERNAME/pythowo-playground)
+
+Write, run, and uwuify in the browser 💻✨
+
+---
+
+## 🗂️ Folder Structure
+
+```
+pythowo/
+├── pythowo.py              # Main interpreter
+├── stwings_with_awwows.py  # Lexer, parser, tokens
+├── shwell.py               # Built-in functions
+├── exwamples/              # Sample .pyowo programs
+│   └── hewwo.pyowow
+└── README.md
+```
+
+---
+
+## 🙌 Contribute to the Cursed
+
+PRs and stars are always welcome 🌟
+
+```bash
+git clone https://github.com/YOUR_USERNAME/pythowo
+cd pythowo
+python pythowo.py your_code.pyowo
+```
+
+---
+
+## 🪪 License
+
+MIT License — use it, remix it, uwuify it, but don't ship it to production. Ever.
+
+---
+
+## 👥 Credits
+
+- Original idea: [@virejdasani](https://github.com/virejdasani)
+- Dark Mode & Playground Rebuild: **Nishit Suman**
+- Brought to you by chaos, caffeine, and cursed creativity.
+
+---
+
+## ⭐ GitHub
+
+Show some 💖 if it made you smile:  
+[https://github.com/YOUR_USERNAME/pythowo](https://github.com/YOUR_USERNAME/pythowo)
