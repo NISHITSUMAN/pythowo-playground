@@ -16,19 +16,23 @@ export default function Home() {
     setLoading(true);
     setOutput("🏃 Wunning...");
     try {
-      const res = await fetch("/api/run", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ code }),
-      });
-      const data = await res.json();
-      setOutput(data.output || "(no output)");
-    } catch {
+  const res = await fetch("/api/run", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ code }),
+  });
+
+  const data = await res.json();
+  setOutput(data.output || "(no output)");
+
+} catch (err) {
+  console.error("PythOwO crashed:", err); 
   setOutput("❌ Wuntime ewwow!");
+
+} finally {
+  setLoading(false);
 }
-    } finally {
-      setLoading(false);
-    }
+
   };
 
   return (
