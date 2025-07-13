@@ -82,17 +82,18 @@ export default function Home() {
           <li><b>+ - * / ^</b> – Math ops</li>
           <li><b>twue, fawse, nwull</b> – Constants</li>
         </ul>
-       <p className="pt-4 text-xs text-muted-foreground">
-  Full source on{" "}
+     <p className="pt-4 text-xs text-muted-foreground">
+  Full source on{' '}
   <a
     href="https://github.com/NISHITSUMAN/PythOwO"
     target="_blank"
     rel="noopener noreferrer"
     className="underline"
   >
-    GitHub&nbsp;&rarr;
+    GitHub →
   </a>
 </p>
+
 
       </section>
     </main>
