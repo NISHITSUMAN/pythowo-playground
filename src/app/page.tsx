@@ -13,40 +13,35 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const runCode = async () => {
-  setLoading(true);
-  setOutput(""); // clear old output
-  try {
-    const res = await fetch("/api/run", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ code }),
-    });
+    setLoading(true);
+    setOutput(""); // clear old output
 
-    if (!res.ok) {
-      const errText = await res.text();
-      setOutput(`❌ API Error: ${res.status} – ${errText}`);
-    } else {
-      const data = await res.json();
-      setOutput(data.output || "(no output)");
+    console.log("🟡 Sending code to /api/run:", code);
+
+    try {
+      const res = await fetch("/api/run", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code }),
+      });
+
+      console.log("🔵 Got response:", res);
+
+      if (!res.ok) {
+        const errText = await res.text();
+        console.error("🔴 API Error response:", errText);
+        setOutput(`❌ API Error: ${res.status} – ${errText}`);
+      } else {
+        const data = await res.json();
+        console.log("🟢 Parsed response:", data);
+        setOutput(data.output || "(no output)");
+      }
+    } catch (err) {
+      console.error("❌ PythOwO crashed:", err);
+      setOutput("❌ Wuntime ewwow!");
+    } finally {
+      setLoading(false);
     }
-  } catch (error: any) {
-    setOutput(`❌ Wuntime ewwow! ${error.message || error}`);
-  } finally {
-    setLoading(false);
-  }
-};
-
-  const data = await res.json();
-  setOutput(data.output || "(no output)");
-
-} catch (err) {
-  console.error("PythOwO crashed:", err); 
-  setOutput("❌ Wuntime ewwow!");
-
-} finally {
-  setLoading(false);
-}
-
   };
 
   return (
@@ -96,19 +91,17 @@ export default function Home() {
           <li><b>+ - * / ^</b> – Math ops</li>
           <li><b>twue, fawse, nwull</b> – Constants</li>
         </ul>
-     <p className="pt-4 text-xs text-muted-foreground">
-  Full source on{' '}
-  <a
-    href="https://github.com/NISHITSUMAN/PythOwO"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="underline"
-  >
-    GitHub →
-  </a>
-</p>
-
-
+        <p className="pt-4 text-xs text-muted-foreground">
+          Full source on{" "}
+          <a
+            href="https://github.com/NISHITSUMAN/PythOwO"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            GitHub →
+          </a>
+        </p>
       </section>
     </main>
   );
