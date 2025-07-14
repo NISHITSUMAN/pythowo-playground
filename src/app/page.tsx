@@ -16,10 +16,10 @@ export default function Home() {
     setLoading(true);
     setOutput(""); // clear old output
 
-    console.log("🟡 Sending code to /api/run:", code);
+    console.log("🟡 Sending code to backend:", code);
 
     try {
-      const res = await fetch("/api/run", {
+      const res = await fetch("https://pythowo-backend.onrender.com/run", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ code }),
