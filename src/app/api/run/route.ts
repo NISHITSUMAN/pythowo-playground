@@ -1,8 +1,11 @@
+export const runtime = "nodejs";
+
 import { NextRequest, NextResponse } from "next/server";
 import { spawn } from "child_process";
 import { writeFile, unlink } from "fs/promises";
 import path from "path";
 import os from "os";
+
 
 export async function POST(req: NextRequest) {
   const body = await req.json();
