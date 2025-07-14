@@ -16,7 +16,7 @@ export default function Home() {
     setLoading(true);
     setOutput(""); // clear old output
 
-    console.log("🟡 Sending code to backend:", code);
+    console.log("🟡 Sending code to Render API:", code);
 
     try {
       const res = await fetch("https://pythowo-backend.onrender.com/run", {
