@@ -92,7 +92,7 @@ hewwo, Nishit!
 
 Check out the official **PythOwO Playground UI**:
 
-👉 [https://github.com/YOUR_USERNAME/pythowo-playground](https://github.com/YOUR_USERNAME/pythowo-playground)
+👉 [CLICK HERE](https://github.com/NISHITSUMAN/pythowo-playground)
 
 Write, run, and uwuify in the browser 💻✨
 
@@ -130,15 +130,8 @@ MIT License — use it, remix it, uwuify it, but don't ship it to production. Ev
 
 ---
 
-## 👥 Credits
-
-- Original idea: [@virejdasani](https://github.com/virejdasani)
-- Dark Mode & Playground Rebuild: **Nishit Suman**
-- Brought to you by chaos, caffeine, and cursed creativity.
-
----
 
 ## ⭐ GitHub
 
 Show some 💖 if it made you smile:  
-[https://github.com/YOUR_USERNAME/pythowo](https://github.com/YOUR_USERNAME/pythowo)
+[https://github.com/YOUR_USERNAME/pythowo](https://github.com/NISHITSUMAN/Pythowo)
