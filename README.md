@@ -92,7 +92,7 @@ hewwo, Nishit!
 
 Check out the official **PythOwO Playground UI**:
 
-👉 [CLICK HERE](https://github.com/NISHITSUMAN/pythowo-playground)
+👉 [CLICK HERE](https://pythowo-playground.vercel.app/)
 
 Write, run, and uwuify in the browser 💻✨
 
